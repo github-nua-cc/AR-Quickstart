@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColourChanger : MonoBehaviour
+public class StateChanger : MonoBehaviour
 {
     Dictionary<string, Material> originalMaterials = new Dictionary<string, Material>();
     // Start is called before the first frame update

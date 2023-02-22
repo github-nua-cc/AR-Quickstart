@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateChanger : MonoBehaviour
 {
     Dictionary<string, Material> originalMaterials = new Dictionary<string, Material>();
+    List<GameObject> selectedGameObjects = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +25,22 @@ public class StateChanger : MonoBehaviour
                 if (hit.collider != null && selectedState != null)
                 {
                         GameObject go = hit.collider.gameObject;
-                        originalMaterials.TryAdd(go.name, go.GetComponent<MeshRenderer>().material);
+                        selectedGameObjects.Add(go);
+                        originalMaterials.Add(go.name, go.GetComponent<MeshRenderer>().material);
                         selectedState.playAudio();
-                    
-                    go.GetComponent<MeshRenderer>().material = selectedState.material;
+                        go.GetComponent<MeshRenderer>().material = selectedState.material;
                 }
             }
         }
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
+        if (Input.touchCount > 0 && (Input.touches[0].phase == TouchPhase.Ended || /* Input.touches[0].phase == TouchPhase.Moved || */Input.touches[0].phase == TouchPhase.Canceled))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null)
-                {
-                    GameObject go = hit.collider.gameObject;
-                    go.GetComponent<MeshRenderer>().material = originalMaterials[go.name];
-                }
-            }
+
+                        for(int i = 0; i < selectedGameObjects.Count; i++){
+                            selectedGameObjects[i].GetComponent<MeshRenderer>().material = originalMaterials[selectedGameObjects[i].name];
+                            originalMaterials.Remove(selectedGameObjects[i].name);
+                        }
+                        selectedGameObjects.Clear();
+
         }
     }
 }

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3082519167716498649}
   - component: {fileID: 5057796410052386610}
   - component: {fileID: 1101758481712683876}
-  - component: {fileID: 3714258696300046678}
-  - component: {fileID: -5617374743213985155}
+  - component: {fileID: -7500029116973265658}
+  - component: {fileID: 4255969061702942692}
+  - component: {fileID: -4975987339132449369}
   m_Layer: 0
   m_Name: RedCube
   m_TagString: Untagged
@@ -85,7 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3714258696300046678
+--- !u!114 &-7500029116973265658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718734014332148255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e81304aae83d14e8de41543213f5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 2100000, guid: f4cb3b3dae23d1942918a75bae7197e7, type: 2}
+  audioClip: {fileID: 8300000, guid: 0857365e5923a3e41a3c12187ace338f, type: 3}
+--- !u!65 &4255969061702942692
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,13 +115,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5617374743213985155
+--- !u!114 &-4975987339132449369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,8 +130,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 4718734014332148255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e81304aae83d14e8de41543213f5be, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: f4cb3b3dae23d1942918a75bae7197e7, type: 2}
-  audioClip: {fileID: 8300000, guid: 0857365e5923a3e41a3c12187ace338f, type: 3}
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -7500029116973265658}
+          m_TargetAssemblyTypeName: SelectedState, Assembly-CSharp
+          m_MethodName: setSelectedMaterial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -7500029116973265658}
+          m_TargetAssemblyTypeName: SelectedState, Assembly-CSharp
+          m_MethodName: setOriginalMaterial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -7500029116973265658}
+          m_TargetAssemblyTypeName: SelectedState, Assembly-CSharp
+          m_MethodName: playAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

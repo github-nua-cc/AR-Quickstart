@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SimpleImage.unity
-    guid: b5fde80fade58ee46b2b3b2274f51912
+    path: Assets/Scenes/ModelImport.unity
+    guid: b7aca3e130f0c9e4e8e04860e40b4d07
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
